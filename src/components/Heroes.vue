@@ -1,6 +1,7 @@
 <template>
   <div id="heroes">
     <h2>My Heroes</h2>
+
     <ul class="heroes">
       <li v-for="hero of heroes" :key="hero.id" v-on:click="onSelect(hero)"
           v-bind:class="{ selected: hero === selectedHero }">
@@ -8,23 +9,19 @@
       </li>
     </ul>
 
-    <div v-if="selectedHero">
-      <h2>{{ selectedHero.name | uppercase }} Details</h2>
-      <div><span>id: </span>{{selectedHero.id}}</div>
-      <div>
-        <label>name:
-          <input v-model="selectedHero.name" placeholder="name">
-        </label>
-      </div>
-    </div>
+    <heroDetail :hero="selectedHero"></heroDetail>
   </div>
 </template>
 
 <script>
 	import { HEROES } from '../model/mock-heroes';
+	import heroDetail from '../components/HeroDetail';
 
 	export default {
 		name: 'Heroes',
+		components: {
+			heroDetail
+		},
 		data() {
 			return {
 				heroes: HEROES,
