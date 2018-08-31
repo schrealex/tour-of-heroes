@@ -8,14 +8,33 @@
           <input v-model="hero.name" placeholder="name">
         </label>
       </div>
+      <button v-on:click="goBack()">go back</button>
     </div>
   </div>
 </template>
 
 <script>
+	import HeroService from '../service/HeroService';
+
 	export default {
 		name: 'HeroDetail',
-		props: ['hero']
+		created: function () {
+			this.getHero();
+		},
+		data() {
+			return {
+				hero: null
+			};
+		},
+		methods: {
+			getHero() {
+				const id = +this.$route.params.id;
+				HeroService.getHero(id).subscribe(hero => this.hero = hero);
+			},
+			goBack() {
+				this.$router.go(-1);
+			}
+		}
 	};
 </script>
 

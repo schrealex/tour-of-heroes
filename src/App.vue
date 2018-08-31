@@ -1,17 +1,22 @@
 <template>
   <div id="app">
     <h1>{{title}}</h1>
-    <heroes></heroes>
+    <nav>
+      <router-link to="/dashboard">Dashboard</router-link>
+      <router-link to="/heroes">Heroes</router-link>
+    </nav>
+    <router-view></router-view>
+    <messages></messages>
   </div>
 </template>
 
 <script>
-	import Heroes from './components/Heroes';
+	import messages from './components/Messages';
 
 	export default {
 		name: 'app',
 		components: {
-			Heroes
+			messages
 		},
 		data() {
 			return {

@@ -3,34 +3,32 @@
     <h2>My Heroes</h2>
 
     <ul class="heroes">
-      <li v-for="hero of heroes" :key="hero.id" v-on:click="onSelect(hero)"
-          v-bind:class="{ selected: hero === selectedHero }">
-        <span class="badge">{{hero.id}}</span> {{hero.name}}
+      <li v-for="hero of heroes" :key="hero.id">
+        <router-link :to="'/detail/' + hero.id">
+          <span class="badge">{{hero.id}}</span> {{hero.name}}
+        </router-link>
       </li>
     </ul>
-
-    <heroDetail :hero="selectedHero"></heroDetail>
   </div>
 </template>
 
 <script>
-	import { HEROES } from '../model/mock-heroes';
-	import heroDetail from '../components/HeroDetail';
+	import HeroService from '../service/HeroService';
 
 	export default {
 		name: 'Heroes',
-		components: {
-			heroDetail
+		components: {},
+		created: function () {
+			this.getHeroes();
 		},
 		data() {
 			return {
-				heroes: HEROES,
-				selectedHero: null
+				heroes: null
 			};
 		},
 		methods: {
-			onSelect(hero) {
-				this.selectedHero = hero;
+			getHeroes() {
+				HeroService.getHeroes().subscribe(heroes => this.heroes = heroes);
 			}
 		}
 	};
