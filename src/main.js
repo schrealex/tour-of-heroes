@@ -6,6 +6,8 @@ import './filters/uppercase';
 
 import router from './router';
 
+import './assets/css/styles.css';
+
 Vue.config.productionTip = false;
 
 Vue.use(VueRx);

@@ -1,42 +1,52 @@
 export var HEROES = [
 	{
+		id: 1,
+		name: 'Mega Man',
+		img: 'megaman.png'
+	},
+	{
+		id: 9,
+		name: 'Metal Man',
+		img: 'metalman.jpg'
+	},
+	{
+		id: 10,
+		name: 'Air Man',
+		img: 'airman.png'
+	},
+	{
 		id: 11,
-		name: 'Mr. Nice'
+		name: 'Bubble Man',
+		img: 'bubbleman.png'
 	},
 	{
 		id: 12,
-		name: 'Narco'
+		name: 'Quick Man',
+		img: 'quickman.jpg'
 	},
 	{
 		id: 13,
-		name: 'Bombasto'
+		name: 'Crash Man',
+		img: 'crashman.png'
 	},
 	{
 		id: 14,
-		name: 'Celeritas'
+		name: 'Flash Man',
+		img: 'flashman.png'
 	},
 	{
 		id: 15,
-		name: 'Magneta'
+		name: 'Heat Man',
+		img: 'heatman.png'
 	},
 	{
 		id: 16,
-		name: 'RubberMan'
+		name: 'Wood Man',
+		img: 'woodman.jpg'
 	},
 	{
-		id: 17,
-		name: 'Dynama'
-	},
-	{
-		id: 18,
-		name: 'Dr IQ'
-	},
-	{
-		id: 19,
-		name: 'Magma'
-	},
-	{
-		id: 20,
-		name: 'Tornado'
+		id: 99,
+		name: 'Dr. Wiley',
+		img: 'drwiley.png'
 	}
 ];

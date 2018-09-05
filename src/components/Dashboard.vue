@@ -13,14 +13,21 @@
         </router-link>
       </a>
     </div>
+
+    <heroSearch></heroSearch>
   </div>
 </template>
 
 <script>
 	import HeroService from '../service/HeroService';
 
+	import heroSearch from '../components/HeroSearch';
+
 	export default {
 		name: 'Dashboard',
+		components: {
+			heroSearch
+		},
 		data() {
 			return {
 				loading: false,

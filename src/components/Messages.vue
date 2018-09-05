@@ -1,6 +1,5 @@
 <template>
   <div>
-    Message Service
     <div v-if="messageService.messages.length">
 
       <h2>Messages</h2>
