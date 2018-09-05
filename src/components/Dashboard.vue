@@ -8,6 +8,7 @@
       <a v-for="hero of heroes" :key="hero.id" class="col-1-4">
         <router-link :to="'/detail/' + hero.id">
           <div class="module hero">
+            <img class="hero-image" :src="getImage(hero.img)"/>
             <h4>{{ hero.name }}</h4>
           </div>
         </router-link>
@@ -41,9 +42,17 @@
 			getHeroes() {
 				this.loading = true;
 				HeroService.getHeroes().subscribe(heroes => {
-					this.heroes = heroes.slice(1, 5);
+					this.heroes = [
+						heroes.find(h => h.name === 'Mega Man'),
+						heroes.find(h => h.name === 'Air Man'),
+						heroes.find(h => h.name === 'Flash Man'),
+						heroes.find(h => h.name === 'Heat Man')
+					];
 					this.loading = false;
 				});
+			},
+			getImage(image) {
+				return require(`@/assets/images/${image}`);
 			}
 		}
 	};
@@ -72,6 +81,11 @@
     box-sizing: border-box;
   }
 
+  .hero-image {
+    height: 100px;
+    margin-right: 50px;
+  }
+
   h3 {
     text-align: center;
     margin-bottom: 0;
@@ -79,6 +93,7 @@
 
   h4 {
     position: relative;
+    align-self: center;
   }
 
   .grid {
@@ -90,13 +105,13 @@
   }
 
   .module {
-    padding: 20px;
-    text-align: center;
+    padding: 10px;
     color: #eee;
-    max-height: 120px;
+    max-height: 140px;
     min-width: 120px;
     background-color: #607d8b;
     border-radius: 2px;
+    display: flex;
   }
 
   .module:hover {
